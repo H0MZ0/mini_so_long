@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/13 02:24:22 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/13 16:38:53 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,10 @@
 # define KEY_D 100
 # define KEY_S 115
 # define KEY_A 97
-# define ESC 65307
+# define KEY_Q 113
 # define ON_DESTROY 17
 
-# include "mlx/mlx.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <stddef.h>
-# include <string.h>
-# include <fcntl.h>
-# include <math.h>
+# include <mlx.h>
 # include "GNL/get_next_line.h"
 
 typedef struct s_axis

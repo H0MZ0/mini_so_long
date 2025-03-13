@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/13 02:28:38 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/13 16:38:37 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	key_hook(int keyhook, t_mlx *mlx)
 {
 	find_player(mlx);
 	count_things(mlx, 0);
-	if (keyhook == KEY_ESC || keyhook == ON_DESTROY)
+	if (keyhook == KEY_ESC || keyhook == KEY_Q)
 		close_window(mlx);
 	if (keyhook == KEY_W || keyhook == KEY_UP)
 		move_player(mlx, mlx->p_x, mlx->p_y - 1);
