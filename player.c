@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 17:09:16 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/13 02:22:45 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/13 16:18:58 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,19 @@ void	win_message(void)
 	ft_putstr("|------------|\n", 1);
 }
 
+void	print_moves(t_mlx *mlx)
+{
+	mlx->moves += 1;
+	ft_putstr("moves: ", 1);
+	ft_putnbr(mlx->moves);
+	ft_putstr("\n", 1);
+}
+
 void	move_player(t_mlx *mlx, int new_x, int new_y)
 {
 	if (mlx->game.c == 0 && mlx->game.map[new_y][new_x] == 'E')
 	{
-		mlx->moves += 1;
+		print_moves(mlx);
 		mlx->game.map[new_y][new_x] = 'P';
 		mlx->game.map[mlx->p_y][mlx->p_x] = '0';
 		win_message();
@@ -39,7 +47,7 @@ void	move_player(t_mlx *mlx, int new_x, int new_y)
 	if (mlx->game.map[new_y][new_x] == '0'
 		|| mlx->game.map[new_y][new_x] == 'C')
 	{
-		mlx->moves += 1;
+		print_moves(mlx);
 		mlx->game.map[new_y][new_x] = 'P';
 		mlx->game.map[mlx->p_y][mlx->p_x] = '0';
 	}
