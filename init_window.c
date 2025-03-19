@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/13 16:38:37 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/19 02:03:56 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	in_mlx(t_mlx *mlx)
 	find_player(mlx);
 	rendre_map(mlx);
 	mlx_loop_hook(mlx->mlx, update_game, mlx);
+	mlx_hook(mlx->win, 17, 0, close_window, mlx);
 	mlx_key_hook(mlx->win, key_hook, mlx);
 	mlx_loop(mlx->mlx);
 }

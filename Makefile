@@ -8,6 +8,7 @@ SRC = so_long.c map_parsing.c map_parsing2.c \
       init_helper.c init_helper2.c
 
 GNL_FILES = GNL/get_next_line.c GNL/get_next_line_utils.c
+HEADER = so_long.h
 
 OBJ = $(SRC:.c=.o) $(GNL_FILES:.c=.o)
 
@@ -15,7 +16,7 @@ NAME = so_long
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	@$(CC) $(CFLAGS) $(OBJ) $(MLX) -o $(NAME)
 
 clean:

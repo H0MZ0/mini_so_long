@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/13 16:38:53 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/18 22:17:14 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,48 +75,70 @@ typedef struct s_mlx
 	int		height;
 	int		exit;
 }	t_mlx;
+/*check_walls*/
+void	fl_walls(t_mlx *mlx, int y);
+void	check_fl_walls(t_mlx *mlx);
+void	check_rl_walls(t_mlx *mlx);
 
-/*PARSING*/
+/*flood_fill*/
+void	flood_fill(t_mlx *mlx, int x, int y, char **copy);
+void	flood_err(t_mlx *mlx, char *str);
+void	check_flood(t_mlx *mlx, char **map);
+
+/*ft_free*/
+void	free_images(t_mlx *mlx);
+int		close_window(void *param);
+
+/*ft_helpers*/
+int		ft_strcmp(const char *s1, const char *s2);
+void	ft_putstr(char *str, int fd);
+void	free_arr(char **str);
+int		is_valid_ber_file(char *filename);
+/*ft_helpers2*/
+size_t	ft_strcpy(char *dst, const char *src);
+void	put_err(char *str);
+void	ft_putchar(char c);
+void	ft_putnbr(int nbr);
+/*ft_helpers3*/
+void	*ft_memset(void *s, int c, size_t n);
+
+/*init_helpers*/
+int		update_game(t_mlx *mlx);
+void	exit_door(t_mlx *mlx);
+void	animate_enemy(t_mlx *mlx);
+void	rendre_helper(t_mlx *mlx, int y, int x);
+
+/*init_helpers2*/
+char	*ft_itoa(int n);
+void	draw_rectangle(t_mlx *mlx, int x, int y);
+void	display_moves(t_mlx *mlx);
+
+/*init_window*/
+void	rendre_map(t_mlx *mlx);
+int		key_hook(int keyhook, t_mlx *mlx);
+void	enemy_sprites(t_mlx *mlx);
+void	init_wind(t_mlx *mlx);
+void	in_mlx(t_mlx *mlx);
+
+/*map_parsing*/
 void	read_map(t_mlx *mlx, char *map);
 void	pars_square(t_mlx *mlx);
 void	check_others(t_mlx *mlx);
 int		column(char *map);
 void	count_things(t_mlx *mlx, int check);
+
+/*map_parsing2*/
 void	copy_map(t_mlx *mlx);
 void	find_player(t_mlx *mlx);
-
-void	ft_putnbr(int nbr);
-void	print_moves(t_mlx *mlx);
-int		is_valid_ber_file(char *filename);
-void	print_arr(char **str);
-void	free_arr(char **str);
-void	check_rl_walls(t_mlx *game);
-void	check_fl_walls(t_mlx *game);
-void	fl_walls(t_mlx *game, int y);
-void	flood_fill(t_mlx *mlx, int x, int y, char **copy);
-int		ft_strcmp(const char *s1, const char *s2);
-void	ft_putstr(char *str, int fd);
-void	put_err(char *str);
-void	in_mlx(t_mlx *mlx);
-void	move_player(t_mlx *mlx, int new_x, int new_y);
-size_t	ft_strcpy(char *dst, const char *src);
-void	check_flood(t_mlx *mlx, char **map);
-void	*ft_memset(void *s, int c, size_t n);
-
-int		ft_flood_fill_check(t_mlx *mlx);
-void	print_moves(t_mlx *mlx);
-// void	exit_door(t_mlx *mlx);
-int		update_game(t_mlx *mlx);
-void	exit_door(t_mlx *mlx);
-void	animate_enemy(t_mlx *mlx);
-void	rendre_map(t_mlx *mlx);
 void	count_helper(t_mlx *mlx, int n);
-void	rendre_helper(t_mlx *mlx, int y, int x);
-void	display_moves(t_mlx *mlx);
 
-// FREE
-int		close_window(void *param);
-void	free_images(t_mlx *mlx);
-void	free_map(char **map, int lines);
+/*player*/
+void	lose_message(void);
+void	win_message(void);
+void	print_moves(t_mlx *mlx);
+void	move_player(t_mlx *mlx, int new_x, int new_y);
+
+/*so_long*/
+void	map_filter(char *map);
 
 #endif

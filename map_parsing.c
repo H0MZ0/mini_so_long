@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:01:07 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/13 16:31:29 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/18 17:24:19 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ int	column(char *map)
 		put_err("Failed to open map\n");
 	size = 0;
 	str = get_next_line(fd);
+	if (!str)
+		put_err("Error\nempty map\n");
 	while (str)
 	{
 		free(str);
